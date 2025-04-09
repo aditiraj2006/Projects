@@ -1,0 +1,12 @@
+@import "tailwindcss";
+
+
+.featureCard2:hover .featureCardSVG{
+    filter: drop-shadow(0px 2px 24px rgba(0, 0 , 0, 0.6));
+    stroke-opacity: 0;
+}
+
+/* it is the shadow of new feature section box  */
+.shdw{
+    box-shadow: 2px 4px 9px 1px hsl(0deg 78.1% 43.68% / 5%);
+}
