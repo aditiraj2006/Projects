@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GeminiReVamp</title>
+  <link rel="stylesheet" href="main.css" />
+
+  <!-- Import Mulish font -->
+  <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Custom style -->
+  <style>
+    .mullish {
+      font-family: 'Mulish', sans-serif;
+    }
+  </style>
+</head>
+<body>
+    <div class="overflow-x-hidden relative w-full ">
+    <!-- nav bar  -->
+    <nav class="bg-[#842e3d]">
+      <div class="relative mx-auto flex items-center justify-between w-11/12 max-w-[1080px]">
+        <a href="/" class="cursor-pointer py-7 pr-7 block md:inline-block">
+          <img src="/imgs/gdg.png" width="200px" height="auto" style="
+              border-radius: 8px; /* Adjust the radius for desired roundness */
+              box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle box shadow */
+            "/>
+        </a>
+    
+        <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none">
+          <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+            <path v-if="!isMenuOpen" fill-rule="evenodd" clip-rule="evenodd" d="M4 6H20V8H4V6ZM4 11H20V13H4V11ZM4 16H20V18H4V16Z"/>
+            <path v-else fill-rule="evenodd" clip-rule="evenodd" d="M18.278 16.864a1 1 0 0 1-1.414 1.414l-4.829-4.828-4.828 4.828a1 1 0 0 1-1.414-1.414l4.828-4.829-4.828-4.828a1 1 0 0 1 1.414-1.414l4.829 4.828 4.828-4.828a1 1 0 0 1 1.414 1.414l-4.828 4.829z"/>
+          </svg>
+        </button>
+    
+        <ul id="nav-links" class="hidden md:flex space-x-4">
+          <li class="text-white mullish py-7 hover:text-[#F07E3C] cursor-pointer transition-all duration-200 relative group">
+            <a href="#">Home</a>
+            <div class="absolute bottom-0 w-full h-1 bg-[#F07E3C] hidden group-hover:block transition-all duration-200 "></div>
+          </li>
+    
+          <li class="text-white mullish py-7 hover:text-[#F07E3C] cursor-pointer transition-all duration-200 relative group">
+            <a href="#">About</a>
+            <div class="absolute bottom-0 w-full h-1 bg-[#F07E3C] hidden group-hover:block transition-all duration-200 "></div>
+          </li>
+    
+          <li class="text-white mullish py-7 hover:text-[#F07E3C] cursor-pointer transition-all duration-200 relative group">
+            <a href="#">Devcation`25</a>
+          </li>
+    
+          <li class="text-white mullish py-7 hover:text-[#F07E3C] cursor-pointer transition-all duration-200 relative group">
+            <a href="#">Timeline</a>
+          </li>
+    
+          <li class="text-white mullish py-7 hover:text-[#F07E3C] cursor-pointer transition-all duration-200 relative group">
+            <a href="#">Events</a>
+            <div class="absolute bottom-0 w-full h-1 bg-[#F07E3C] hidden group-hover:block transition-all duration-200 "></div>
+          </li>
+    
+          <li class="text-white mullish py-7 hover:text-[#F07E3C] cursor-pointer transition-all duration-200 relative group">
+            <a href="#">More</a>
+            <div class="absolute bottom-0 w-full h-1 bg-[#F07E3C] hidden group-hover:block transition-all duration-200 "></div>
+          </li>
+    
+          <li class="text-white mullish py-7 hover:text-[#F07E3C] cursor-pointer transition-all duration-200 relative group">
+            <a href="#">Contact</a>
+            <div class="absolute bottom-0 w-full h-1 bg-[#F07E3C] hidden group-hover:block transition-all duration-200 "></div>
+          </li>
+        </ul>
+    
+        <div class="flex items-center space-x-6">
+          <div class="flex flex-col items-center justify-center space-y-2">
+            <a href="https://discord.com" target="_blank" rel="noopener noreferrer">
+              <img
+                src="/imgs/discordlogo-removebg-preview.png"
+                alt="Discord Logo"
+                class="w-[40px] h-[25px] transition-transform duration-200 hover:scale-125"
+              />
+            </a>
+          </div>
+          <button class="py-3 px-4 mullish rounded-sm text-sm bg-white text-[#F07E3C] border-all duration-200 hover:text-[#AA4012] font-extrabold">
+            Register
+          </button>
+        </div>
+      </div>
+    
+      <div id="mobile-menu" class="hidden md:hidden bg-[#842e3d] py-4">
+        <ul class="flex flex-col items-center space-y-4">
+          <li><a href="#" class="text-white mullish py-2 hover:text-[#F07E3C] cursor-pointer transition-all duration-200">Home</a></li>
+          <li><a href="#" class="text-white mullish py-2 hover:text-[#F07E3C] cursor-pointer transition-all duration-200">About</a></li>
+          <li><a href="#" class="text-white mullish py-2 hover:text-[#F07E3C] cursor-pointer transition-all duration-200">Devcation`25</a></li>
+          <li><a href="#" class="text-white mullish py-2 hover:text-[#F07E3C] cursor-pointer transition-all duration-200">Timeline</a></li>
+          <li><a href="#" class="text-white mullish py-2 hover:text-[#F07E3C] cursor-pointer transition-all duration-200">Events</a></li>
+          <li><a href="#" class="text-white mullish py-2 hover:text-[#F07E3C] cursor-pointer transition-all duration-200">More</a></li>
+          <li><a href="#" class="text-white mullish py-2 hover:text-[#F07E3C] cursor-pointer transition-all duration-200">Contact</a></li>
+          <li>
+            <a href="https://discord.com" target="_blank" rel="noopener noreferrer" class="flex items-center space-x-2">
+              <img
+                src="/imgs/discordlogo-removebg-preview.png"
+                alt="Discord Logo"
+                class="w-[30px] h-[20px]"
+              />
+              <span class="text-white">Discord</span>
+            </a>
+          </li>
+          <li>
+            <button class="py-2 px-4 mullish rounded-sm text-sm bg-white text-[#F07E3C] border-all duration-200 hover:text-[#AA4012] font-extrabold">
+              Register
+            </button>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    
+    <script>
+      const mobileMenuButton = document.getElementById('mobile-menu-button');
+      const mobileMenu = document.getElementById('mobile-menu');
+      const navLinks = document.getElementById('nav-links');
+    
+      mobileMenuButton.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+      });
+    
+      // Close mobile menu if a link is clicked (optional)
+      const mobileLinks = mobileMenu.querySelectorAll('a');
+      mobileLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          mobileMenu.classList.add('hidden');
+        });
+      });
+    </script>
+
+    <!-- page-1  -->
+    <section class="relative bg-[#A38974] ">
+      <div class="w-10/12 max-w-[1080px] flex flex-col md:flex-row justify-between items-center mx-auto gap-10">
+        
+        <!-- Left Part -->
+        <div class="space-y-8 text-center md:text-left">
+          <div>
+            <img src="/imgs/welcometext.png" alt="" class="float-left mr-4">
+            <div class="clear-left w-6 h-1 bg-[#C15827] *:md:mx-0"></div>
+          </div>
+          
+          
+          <a href="https://unstop.com/hackathons/gemini-revamp-code-create-web-development-devcation25-gdg-on-campus-igdtuw-igdtuw-delhi-1457824" target="_blank" rel="noopener noreferrer">
+            <button class="flex items-center bg-gradient-to-r from-[#9e5564] to-[#842e3d] text-white font-bold px-6 py-3 rounded-xl shadow-lg hover:from-[#9e5564] hover:to-[#521a25] transition">
+              <img src="/imgs/bdevlogo.jpg" alt="Devfolio" class="w-5 h-5 rounded-full mr-3 bg-white p-0.5" />
+              Register Now
+            </button>
+          </a>
+          <div class="flex flex-row items-center space-x-4 py-4">
+            <img src="/imgs/facebook-icon.svg" alt="Facebook" class="w-6 h-6" />
+            <img src="/imgs/twi.png" alt="Twitter" class="w-7 h-8" />
+            <img src="/imgs/instagram-icon.svg" alt="Instagram" class="w-6 h-6" />
+            <img src="/imgs/youtube.png" alt="YouTube" class="w-6 h-6" />
+            <img src="/imgs/linkedin-icon.svg" alt="LinkedIn" class="w-6 h-6" />
+          </div>
+          
+          
+          
+        </div>
+    
+        <!-- Right Part -->
+        <img src="/imgs/devcationimg.png" alt="Devcation 2025" class="max-w-[600px] w-full rounded-xl shadow-lg" />
+        
+      </div>
+      <!-- list section  -->
+     
+    <section class="bg-[#A38974] rounded-xl shadow-lg p-8 w-10/12 max-w-[1080px] mx-auto my-10">
+      <ul class="space-y-6">
+        <li class="flex items-center">
+          <svg class="w-8 h-8 text-green-400 stroke-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="M5 13l4 4L19 7" />
+          </svg>
+          <span>
+            <span class="text-3xl font-bold text-[#842e3d]">4.6/5+</span>
+            <span class="text-lg text-white font-bold"> Hacker rating</span>
+          </span>
+        </li>
+        <li class="flex items-center">
+          <svg class="w-8 h-8 text-green-400 stroke-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="M5 13l4 4L19 7" />
+          </svg>
+          <span>
+            <span class="text-3xl font-bold text-[#842e3d]">100+</span>
+            <span class="text-lg  text-white font-bold "> Projects submitted</span>
+          </span>
+        </li>
+        <li class="flex items-center">
+          <svg class="w-8 h-8 text-green-400 stroke-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="M5 13l4 4L19 7" />
+          </svg>
+          <span>
+            <span class="text-3xl font-bold text-[#842e3d]">500+</span>
+            <span class="text-lg  text-white font-bold "> Participants</span>
+          </span>
+        </li>
+        <li class="flex items-center">
+          <svg class="w-8 h-8 text-green-400 stroke-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="M5 13l4 4L19 7" />
+          </svg>
+          <span>
+            <span class="text-3xl font-bold text-[#842e3d]">50+</span>
+            <span class="text-lg  text-white font-bold "> Mentors</span>
+          </span>
+        </li>
+      </ul>
+        </section>
+       <!-- triangle part -->
+         <div class="w-full" > 
+            <img src="/imgs/triangle.png" alt="" class="w-full" >
+         </div>
+  
+    </section>
+    
+
+   
+    <!-- about gdg -->
+    
+        <section class="relative  py-16 ">
+          <div class="w-10/12 max-w-[1080px] mx-auto text-center">
+            <!-- Creative Design Around Image -->
+            <div class="relative inline-block">
+              <!-- Outer Decorative Circle -->
+              <div class="absolute inset-0 w-[300px] h-[300px] rounded-full bg-gradient-to-r from-[#826D5E] to-[#A38974] blur-lg opacity-50 animate-pulse"></div>
+              
+              <!-- Inner Decorative Border -->
+              <div class="absolute inset-0 w-[250px] h-[250px] rounded-full border-4 border-[#A38974]"></div>
+              
+              <!-- Centered Image -->
+              <img src="/imgs/gdgabout.png" alt="Creative Design" class="relative w-[200px] h-[200px] rounded-full shadow-lg">
+            </div>
+        
+            <section class="py-2 mt-7 relative">
+              <div class="w-10/12 max-w-[1080px] mx-auto mt-7 relative">
+                <img src="/imgs/aboutbg.png" alt="Centered Image" class="w-full max-w-[800px] mx-auto shadow-lg rounded-lg" id="animated-image">
+            
+                <!-- Arrow element -->
+                <div class="arrow"></div>
+              </div>
+            </section>
+            
+            <style>
+              .arrow {
+                position: absolute;
+                width: 20px;
+                height: 20px;
+                background: url('https://cdn-icons-png.flaticon.com/512/271/271228.png') no-repeat center center / contain;
+                animation: moveAround 4s linear infinite;
+              }
+            
+              @keyframes moveAround {
+                0%   { transform: translateX(50%) translateY(100%); top: 100%; left: 50%; }
+                25%  { transform: translateX(100%) translateY(-50%); top: 50%; left: 100%; }
+                50%  { transform: translateX(-50%) translateY(0); top: 0%; left: 50%; }
+                75%  { transform: translateX(0) translateY(50%); top: 50%; left: 0%; }
+                100% { transform: translateX(50%) translateY(100%); top: 100%; left: 50%; }
+              }
+            </style>
+            
+          </div>
+        </section>
+        
+        <!-- about devcation  -->
+         <section class="relative py-16">
+          <div class="w-10/12 max-w-[1080px] mx-auto text-center">
+             <!-- Creative Design Around Image -->
+             <div class="relative inline-block">
+              <!-- Outer Decorative Circle -->
+              <div class="absolute inset-0 w-[300px] h-[300px] rounded-full bg-gradient-to-r from-[#826D5E] to-[#A38974] blur-lg opacity-50 animate-pulse"></div>
+              
+              <!-- Inner Decorative Border -->
+              <div class="absolute inset-0 w-[250px] h-[250px] rounded-full border-4 border-[#A38974]"></div>
+              
+              <!-- Centered Image -->
+              <img src="/imgs/devabout.png" alt=" " class="relative w-[200px] h-[200px] rounded-full shadow-lg">
+            </div>
+
+          </div>
+            
+          <section class="w-full px-6 py-15 mt-11">
+                 <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-8">
+
+                    <!-- Left Image -->
+                    <div class="w-full md:w-1/2">
+                      <img src="/imgs/aboutdev.png" alt="Devcation Visual" class="w-full max-w-[400px] h-auto rounded-lg " />
+                    </div>
+                    
+
+                    <!-- Right Text Box -->
+                    <div class="w-full md:w-1/2 border-4 border-[#842e3d] rounded-xl p-6 bg-white shadow-lg">
+                      
+                      <p class="text-[#842e3d] leading-relaxed text-[17px]">
+                        Devcation is a week-long technical festival organized by Google Developer Groups - Indira Gandhi Delhi Technical University for Women that celebrates diversity in the TechForGood Domain. During the week, we have the Devcation`25 hackathon. These events are designed to spark your creativity, encourage innovative thinking, and help you craft tech solutions that stand out.
+                      </p>
+                    </div>
+
+                 </div>
+          </section>
+        </section>
+
+        <!--4 grid  -->
+        <section class="relative ">
+            <!-- triangle part -->
+            <div class="w-full" > 
+             <img src="/imgs/righttriangle.png" alt="" class="w-full" >
+            </div>
+
+        </section>
+        <section class="relative py-2 bg-[#A38974] ">
+            <div class="w-10/12 max-w-[1080px] flex flex-col md:flex-row justify-between items-center mx-auto gap-10 "></div>
+             <div class="text-center my-10">
+              <h1 class="text-6xl md:text-7xl font-extrabold text-[#521a25] relative inline-block">
+                <span class="relative z-10">Tracks</span>
+                <span class="absolute top-2 left-2 z-0 text-[#C15827] blur-sm select-none">Tracks</span>
+                <span class="absolute top-4 left-4 z-0 text-[#A38974] blur-[2px] select-none">Tracks</span>
+              </h1>
+             </div>
+             <div class="flex justify-center items-center py-10">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-4xl w-full px-4">
+                
+                <!-- Grid Item 1 -->
+                <div class="bg-gray-200 p-6 rounded-lg shadow-md flex flex-col items-center">
+                  <img src="./imgs/grid1.png" alt="Icon 1" class="w-16 h-16 mb-4" />
+                  <p class="text-center text-lg font-bold text-[#521a25]">HealthTech
+                  </p>
+                </div>
+            
+                <!-- Grid Item 2 -->
+                <div class="bg-gray-200 p-6 rounded-lg shadow-md flex flex-col items-center">
+                  <img src="./imgs/grid2.png" alt="Icon 2" class="w-16 h-16 mb-4" />
+                  <p class="text-center text-lg font-bold text-[#521a25]">EdTech</p>
+                </div>
+            
+                <!-- Grid Item 3 -->
+                <div class="bg-gray-200 p-6 rounded-lg shadow-md flex flex-col items-center">
+                  <img src="./imgs/grid3.png" alt="Icon 3" class="w-16 h-16 mb-4" />
+                  <p class="text-center text-lg font-bold text-[#521a25]">Sustainable Development (Open Innovation)</p>
+                </div>
+            
+                <!-- Grid Item 4 -->
+                <div class="bg-gray-200 p-6 rounded-lg shadow-md flex flex-col items-center">
+                  <img src="./imgs/grid4.png" alt=" 4" class="w-16 h-16 mb-4" />
+                  <p class="text-center text-lg font-bold text-[#521a25]">Fin Tech</p>
+                </div>
+            
+              </div>
+            
+            </div>
+          </section>
+
+        
+        <!-- triangle part -->
+        <div class="w-full" > 
+          <img src="/imgs/triangle.png" alt="" class="w-full" >
+        </div>
+
+                    <!-- judges  -->
+            
+                    <div class=" text-white min-h-screen flex flex-col items-center py-10">
+             
+                      <div class="text-center my-10">
+                        <h1 class="text-6xl md:text-7xl font-extrabold text-[#521a25] relative inline-block">
+                          <span class="relative z-10">Judges</span>
+                          <span class="absolute top-2 left-2 z-0 text-[#C15827] blur-sm select-none">Judges</span>
+                          <span class="absolute top-4 left-4 z-0 text-[#CC8F8E] blur-[2px] select-none">Judges</span>
+                        </h1>
+                      </div>
+                      
+                     
+                       <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                         
+                         <!-- Judge 1 -->
+                         <div class="bg-white text-black rounded-xl overflow-hidden shadow-lg w-64">
+                           <img src="./imgs/jud1.jpeg" alt="Kartik Mathur" class="w-full h-64 object-cover">
+                           <div class="p-4">
+                             <a href="#" class="flex items-center space-x-2 text-blue-700 font-semibold">
+                               <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" class="w-5 h-5" alt="LinkedIn">
+                               <span>Kartik Mathur</span>
+                             </a>
+                           </div>
+                         </div>
+                     
+                         <!-- Judge 2 -->
+                         <div class="bg-white text-black rounded-xl overflow-hidden shadow-lg w-64">
+                           <img src="./imgs/jud2.jpeg" alt="Vani Chitkara" class="w-full h-64 object-cover">
+                           <div class="p-4">
+                             <a href="#" class="flex items-center space-x-2 text-blue-700 font-semibold">
+                               <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" class="w-5 h-5" alt="LinkedIn">
+                               <span>Vani Chitkara</span>
+                             </a>
+                           </div>
+                         </div>
+                     
+                         <!-- Judge 3 -->
+                         <div class="bg-white text-black rounded-xl overflow-hidden shadow-lg w-64">
+                           <img src="./imgs/jud3.jpg" alt="Aarnav Jindal" class="w-full h-64 object-cover">
+                           <div class="p-4">
+                             <a href="#" class="flex items-center space-x-2 text-blue-700 font-semibold">
+                               <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" class="w-5 h-5" alt="LinkedIn">
+                               <span>Aarnav Jindal</span>
+                             </a>
+                           </div>
+                         </div>
+                     
+                       </div>
+                     
+                      </div>
+
+                      
+                      <div class="bg-gradient-to-br  text-white min-h-screen py-10 px-4">
+                      
+                        <div class="text-center my-10">
+                          <h1 class="text-6xl md:text-7xl font-extrabold text-[#521a25] relative inline-block">
+                            <span class="relative z-10">Mentors</span>
+                            <span class="absolute top-2 left-2 z-0 text-[#C15827] blur-sm select-none">Mentors</span>
+                            <span class="absolute top-4 left-4 z-0 text-[#CC8F8E] blur-[2px] select-none">Mentors</span>
+                          </h1>
+                        </div>
+                      
+                        <div class="grid grid-cols-4 grid-rows-4 gap-6 justify-items-center">
+                        
+                      
+                          <!-- Mentor 1 -->
+                          <div class="bg-white text-black rounded-xl overflow-hidden shadow-lg w-50 h-70">
+                            <img src="./imgs/men1.jpeg" alt="Mentor" class="w-full h-50 object-cover">
+                            <div class="p-4">
+                              <a href="#" class="flex items-center space-x-2 text-blue-700 font-semibold">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" class="w-5 h-5">
+                                <span>Sandeep Goel</span>
+                              </a>
+                            </div>
+                          </div>
+                      
+                          <!-- Mentor 2 -->
+                          <div class="bg-white text-black rounded-xl overflow-hidden shadow-lg w-50 h-70">
+                            <img src="./imgs/men2.jpeg" alt="Mentor" class="w-full h-50 object-cover">
+                            <div class="p-4">
+                              <a href="#" class="flex items-center space-x-2 text-blue-700 font-semibold">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" class="w-5 h-5">
+                                <span>Venkatesh Sundaram</span>
+                              </a>
+                            </div>
+                          </div>
+                      
+                          <!-- Mentor 3 -->
+                          <div class="bg-white text-black rounded-xl overflow-hidden shadow-lg w-50 h-70">
+                            <img src="./imgs/men3.jpg" alt="Mentor" class="w-full h-50 object-cover">
+                            <div class="p-4">
+                              <a href="#" class="flex items-center space-x-2 text-blue-700 font-semibold">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" class="w-5 h-5">
+                                <span>Ruturaj Pratap Dash</span>
+                              </a>
+                            </div>
+                          </div>
+                      
+                          <!-- Mentor 4 -->
+                          <div class="bg-white text-black rounded-xl overflow-hidden shadow-lg w-50 h-70">
+                            <img src="./imgs/men4.jpg" alt="Mentor" class="w-full h-50 object-cover">
+                            <div class="p-4">
+                              <a href="#" class="flex items-center space-x-2 text-blue-700 font-semibold">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" class="w-5 h-5">
+                                <span>Riya Jain</span>
+                              </a>
+                            </div>
+                          </div>
+                      
+                          <!-- Mentor 5 -->
+                          <div class="bg-white text-black rounded-xl overflow-hidden shadow-lg w-50 h-70">
+                            <img src="./imgs/men5.jpg" alt="Mentor" class="w-full h-50 object-cover">
+                            <div class="p-4">
+                              <a href="#" class="flex items-center space-x-2 text-blue-700 font-semibold">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" class="w-5 h-5">
+                                <span>Aastha Goel</span>
+                              </a>
+                            </div>
+                          </div>
+                      
+                          <!-- Mentor 6 -->
+                          <div class="bg-white text-black rounded-xl overflow-hidden shadow-lg w-50 h-70">
+                            <img src="./imgs/men6.jpg" alt="Mentor" class="w-full h-50 object-cover">
+                            <div class="p-4">
+                              <a href="#" class="flex items-center space-x-2 text-blue-700 font-semibold">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" class="w-5 h-5">
+                                <span>Ayush Sinha</span>
+                              </a>
+                            </div>
+                          </div>
+                      
+                          <!-- Mentor 7 -->
+                          <div class="bg-white text-black rounded-xl overflow-hidden shadow-lg w-50 h-70">
+                            <img src="./imgs/men7.png" alt="Mentor" class="w-full h-50 object-cover">
+                            <div class="p-4">
+                              <a href="#" class="flex items-center space-x-2 text-blue-700 font-semibold">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" class="w-5 h-5">
+                                <span>Priyasha Halder</span>
+                              </a>
+                            </div>
+                          </div>
+                      
+                          <!-- Mentor 8 -->
+                          <div class="bg-white text-black rounded-xl overflow-hidden shadow-lg w-50 h-70">
+                            <img src="./imgs/men8.jpeg" alt="Mentor" class="w-full h-50 object-cover">
+                            <div class="p-4">
+                              <a href="#" class="flex items-center space-x-2 text-blue-700 font-semibold">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" class="w-5 h-5">
+                                <span>Dinesh Raghav</span>
+                              </a>
+                            </div>
+                          </div>
+                      
+                          <!-- Mentor 9 -->
+                          <div class="bg-white text-black rounded-xl overflow-hidden shadow-lg w-50 h-70">
+                            <img src="./imgs/men9.jpeg" alt="Mentor" class="w-full h-50 object-cover">
+                            <div class="p-4">
+                              <a href="#" class="flex items-center space-x-2 text-blue-700 font-semibold">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" class="w-5 h-5">
+                                <span>Saloni Meena</span>
+                              </a>
+                            </div>
+                          </div>
+                      
+                          <!-- Mentor 10 -->
+                          <div class="bg-white text-black rounded-xl overflow-hidden shadow-lg w-50 h-70">
+                            <img src="./imgs/men10.jpg" alt="Mentor" class="w-full h-50 object-cover">
+                            <div class="p-4">
+                              <a href="#" class="flex items-center space-x-2 text-blue-700 font-semibold">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" class="w-5 h-5">
+                                <span>Sakshi Sharma</span>
+                              </a>
+                            </div>
+                          </div>
+                      
+                          <!-- Mentor 11 -->
+                          <div class="bg-white text-black rounded-xl overflow-hidden shadow-lg w-50 h-70">
+                            <img src="./imgs/men11.jpeg" alt="Mentor" class="w-full h-50 object-cover">
+                            <div class="p-4">
+                              <a href="#" class="flex items-center space-x-2 text-blue-700 font-semibold">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" class="w-5 h-5">
+                                <span>Avinash Reddy</span>
+                              </a>
+                            </div>
+                          </div>
+                      
+                          <!-- Mentor 12 -->
+                          <div class="bg-white text-black rounded-xl overflow-hidden shadow-lg w-50 h-70">  
+                            <img src="./imgs/men12.jpg" alt="Mentor" class="w-full h-50 object-cover">
+                            <div class="p-4">
+                              <a href="#" class="flex items-center space-x-2 text-blue-700 font-semibold">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" class="w-5 h-5">
+                                <span>Rajeev Kumar</span>
+                              </a>
+                            </div>
+                          </div>
+                      
+                          <!-- Mentor 13 -->
+                          <div class="bg-white text-black rounded-xl overflow-hidden shadow-lg w-50 h-70">
+                            <img src="./imgs/men13.png" alt="Mentor" class="w-full h-50 object-cover">
+                            <div class="p-4">
+                              <a href="#" class="flex items-center space-x-2 text-blue-700 font-semibold">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" class="w-5 h-5">
+                                <span>Aditya Jain</span>
+                              </a>
+                            </div>
+                          </div>
+                      
+                        </div>
+                      
+                      </div>
+
+        <!-- triangle part -->
+        <div class="w-full" > 
+          <img src="/imgs/tri.png" alt="" class="w-full" >
+        </div>
+                      
+
+        
+
+        <!-- timeline  -->
+        <div class=" text-white font-sans bg-[#A38974]">
+          <div class="text-center py-10">
+            <div class="text-center my-10">
+              <h1 class="text-6xl md:text-7xl font-extrabold text-[#521a25] relative inline-block">
+                <span class="relative z-10">Timeline</span>
+                <span class="absolute top-2 left-2 z-0 text-[#C15827] blur-sm select-none">Timeline</span>
+                <span class="absolute top-4 left-4 z-0 text-[#A38974] blur-[2px] select-none">Timeline</span>
+              </h1>
+             </div>
+          </div>
+        
+          <div class="relative max-w-6xl mx-auto px-4">
+            <!-- Vertical line -->
+            <div class="absolute left-1/2 transform -translate-x-1/2 h-full border-l-4 border-[#521a25]"></div>
+        
+            <!-- Events -->
+            <div class="space-y-20">
+        
+              <!-- 1 -->
+              <div class="flex items-center justify-between">
+                <div class="w-1/2 pr-8">
+                  <div class="bg-white text-[#521a25]  p-6 rounded-lg shadow-md text-left">
+                    <h3 class="font-bold text-lg">🎉 Opening Ceremony & Registration 🚀</h3>
+                    <p class="text-sm">Submission for all Mini Events and the Registration for the Hackathon Starts</p>
+                  </div>
+                </div>
+                <div class="relative w-0 flex flex-col items-center">
+                  <div class="w-5 h-5 bg-purple-300 border-4 border-white rounded-full z-10"></div>
+                  <span class="text-sm mt-2 text-white absolute left-[4rem] whitespace-nowrap">April 4th, 2025</span>
+                </div>
+                <div class="w-1/2"></div>
+              </div>
+        
+              <!-- 2 -->
+              <div class="flex items-center justify-between">
+                <div class="w-1/2"></div>
+                <div class="relative w-0 flex flex-col items-center">
+                  <div class="w-5 h-5 bg-purple-300 border-4 border-white rounded-full z-10"></div>
+                  <span class="text-sm mt-2 text-white absolute right-[4rem] whitespace-nowrap">April 8th, 2025</span>
+                </div>
+                <div class="w-1/2 pl-8">
+                  <div class="bg-white text-[#521a25]  p-6 rounded-lg shadow-md text-left">
+                    <h3 class="font-bold text-lg">🔒 Hacking Period Starts! 🔒</h3>
+                    <p class="text-sm">Get ready to code, create, and innovate!</p>
+                  </div>
+                </div>
+              </div>
+        
+              <!-- 3 -->
+              <div class="flex items-center justify-between">
+                <div class="w-1/2 pr-8">
+                  <div class="bg-white text-[#521a25]  p-6 rounded-lg shadow-md text-left">
+                    <h3 class="font-bold text-lg">⏱ Hacking Period Ends ⏱</h3>
+                    <p class="text-sm">Make sure to wrap up your projects and prepare for submission.</p>
+                  </div>
+                </div>
+                <div class="relative w-0 flex flex-col items-center">
+                  <div class="w-5 h-5 bg-purple-300 border-4 border-white rounded-full z-10"></div>
+                  <span class="text-sm mt-2 text-white absolute left-[4rem] whitespace-nowrap">April 12th, 2025</span>
+                </div>
+                <div class="w-1/2"></div>
+              </div>
+        
+              <!-- 4 -->
+              <div class="flex items-center justify-between">
+                <div class="w-1/2"></div>
+                <div class="relative w-0 flex flex-col items-center">
+                  <div class="w-5 h-5 bg-purple-300 border-4 border-white rounded-full z-10"></div>
+                  <span class="text-sm mt-2 text-white absolute right-[4rem] whitespace-nowrap">April 13th, 2025</span>
+                </div>
+                <div class="w-1/2 pl-8">
+                  <div class="bg-white text-[#521a25]  p-6 rounded-lg shadow-md text-left">
+                    <h3 class="font-bold text-lg">⏱ Mentorship Round Starts ⏱</h3>
+                    <p class="text-sm">Providing mentorship and feedback for every submitted project.</p>
+                  </div>
+                </div>
+              </div>
+        
+              <!-- 5 -->
+              <div class="flex items-center justify-between">
+                <div class="w-1/2 pr-8">
+                  <div class="bg-white text-[#521a25]  p-6 rounded-lg shadow-md text-left">
+                    <h3 class="font-bold text-lg">📅 Final pitching and closing ceremony. 📅</h3>
+                    <p class="text-sm">Don’t miss out on this memorable event!</p>
+                  </div>
+                </div>
+                <div class="relative w-0 flex flex-col items-center">
+                  <div class="w-5 h-5 bg-purple-300 border-4 border-white rounded-full z-10"></div>
+                  <span class="text-sm mt-2 text-white absolute left-[4rem] whitespace-nowrap">April 15th, 2025</span>
+                </div>
+                <div class="w-1/2"></div>
+              </div>
+        
+            </div>
+          </div>
+        </div>
+        <section class="relative py-10 bg-[#A38974] ">
+          <div class="w-10/12 max-w-[1080px] flex flex-col md:flex-row justify-between items-center mx-auto gap-10 "></div>
+          <div class="text-center my-10">
+            <h1 class="text-6xl md:text-7xl font-extrabold text-[#521a25] relative inline-block">
+              <span class="relative z-10">Prizes</span>
+              <span class="absolute top-2 left-2 z-0 text-[#C15827] blur-sm select-none">Prizes</span>
+              <span class="absolute top-4 left-4 z-0 text-[#A38974] blur-[2px] select-none">Prizes</span>
+            </h1>
+          </div>
+          <div class="flex justify-center items-center py-10">
+            <div class="grid grid-cols-2 gap-4 max-w-lg w-full px-4">
+              <div class="aspect-square bg-gray-200 p-4 rounded-lg shadow-md flex flex-col items-center transition-all duration-200 hover:scale-105 hover:shadow-[0_0_10px_5px_#D4BCA7]">
+                <img src="./imgs/prize.png" alt="Icon 1" class="w-12 h-12 mb-2" />
+                <h class="text-center text-sm font-bold text-[#521a25]">Hack & Solve Winners</h>
+                <p class="text-center text-xs  text-[#521a25] mt-2">Cash Prize with swag kits, medals, certificates, social media shoutouts, Interview Buddy Mock Interviews, Codecrafter Membership, Unstop Coupons.
+                </p>
+              </div>
+        
+              <div class="aspect-square bg-gray-200 p-4 rounded-lg shadow-md flex flex-col items-center transition-all duration-200 hover:scale-105 hover:shadow-[0_0_10px_5px_#D4BCA7]">
+                <img src="./imgs/prize.png" alt="Icon 2" class="w-12 h-12 mb-2" />
+                <h class="text-center text-sm font-bold text-[#521a25]">Mini Event Winners</h>
+                <p class="text-center text-xs  text-[#521a25] mt-2">Goodies, certificates, social media shoutouts, unstop coupons</p>
+              </div> 
+        
+              <div class="aspect-square bg-gray-200 p-4 rounded-lg shadow-md flex flex-col items-center transition-all duration-200 hover:scale-105 hover:shadow-[0_0_10px_5px_#D4BCA7]">
+                <img src="./imgs/prize.png" alt="Icon 3" class="w-12 h-12 mb-2" />
+                <h class="text-center text-sm font-bold text-[#521a25]">
+                  All Finalists</h>
+                <p class="text-center text-xs  text-[#521a25] mt-2">Exciting goodies, certificates, unstop coupons</p>
+              </div>
+        
+              <div class="aspect-square bg-gray-200 p-4 rounded-lg shadow-md flex flex-col items-center transition-all duration-200 hover:scale-105 hover:shadow-[0_0_10px_5px_#D4BCA7]">
+                <img src="./imgs/prize.png" alt=" 4" class="w-12 h-12 mb-2" />
+                <h class="text-center text-sm font-bold text-[#521a25]">All Participants</h>
+                <p class="text-center text-xs font-bold text-[#521a25] mt-2">Certificates and 50% unstop coupons and exclusive discount vouchers from IB for all.</p>
+              </div>
+        
+            </div>
+        
+          </div>
+        </section>
+
+        <!-- sponser  -->
+        <div class="bg-[#A38974] py-12 px-4 min-h-screen">
+          <div class="text-center my-10">
+            <h1 class="text-6xl md:text-7xl font-extrabold text-[#521a25] relative inline-block">
+              <span class="relative z-10">Sponsers</span>
+              <span class="absolute top-2 left-2 z-0 text-[#C15827] blur-sm select-none">Sponsers</span>
+              <span class="absolute top-4 left-4 z-0 text-[#A38974] blur-[2px] select-none">Sponsers</span>
+            </h1>
+           </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        
+            <div class="bg-white/20 backdrop-blur-md rounded-lg p-4 flex items-center justify-center shadow-[3px_5px_0px_rgba(82,26,37,0.6)]">
+              <img src="./imgs/s-1.jpg" alt="Sponsor 1" class="max-h-24 object-contain" />
+            </div>
+        
+            <div class="bg-white/20 backdrop-blur-md rounded-lg p-4 flex items-center justify-center shadow-[3px_5px_0px_rgba(82,26,37,0.6)]">
+              <img src="./imgs/s-2.jpg" alt="Sponsor 2" class="max-h-24 object-contain" />
+            </div>
+        
+            <div class="bg-white/20 backdrop-blur-md rounded-lg p-4 flex items-center justify-center shadow-[3px_5px_0px_rgba(82,26,37,0.6)]">
+              <img src="./imgs/s-3.jpg" alt="Sponsor 3" class="max-h-24 object-contain" />
+            </div>
+        
+            <div class="bg-white/20 backdrop-blur-md rounded-lg p-4 flex items-center justify-center shadow-[3px_5px_0px_rgba(82,26,37,0.6)]">
+              <img src="./imgs/s-4.jpg" alt="Sponsor 4" class="max-h-24 object-contain" />
+            </div>
+        
+            <div class="bg-white/20 backdrop-blur-md rounded-lg p-4 flex items-center justify-center shadow-[3px_5px_0px_rgba(82,26,37,0.6)]">
+              <img src="./imgs/s-5.png" alt="Sponsor 5" class="max-h-24 object-contain" />
+            </div>
+        
+            <div class="bg-white/20 backdrop-blur-md rounded-lg p-4 flex items-center justify-center shadow-[3px_5px_0px_rgba(82,26,37,0.6)]">
+              <img src="./imgs/s-6.jpg" alt="Sponsor 6" class="max-h-24 object-contain" />
+            </div>
+        
+          </div>
+        </div>
+        <!-- triangle part -->
+        <div class="w-full" > 
+          <img src="/imgs/triangle.png" alt="" class="w-full" >
+        </div>
+        <!-- faq  -->
+        <div class=" min-h-screen px-4 py-12">
+          <h2 class="text-4xl text-[#521a25] font-bold text-center mb-10 drop-shadow-lg">Frequently Asked Questions</h2>
+        
+          <div class="max-w-3xl mx-auto space-y-4">
+            <!-- FAQ Item -->
+            <div class="bg-white/90 rounded-md shadow-md overflow-hidden">
+              <button onclick="toggleFAQ(this)" class="w-full text-left px-4 py-3 font-semibold flex justify-between items-center">
+                Who can contribute?
+                <span class="transform transition-transform duration-200">▼</span>
+              </button>
+              <div class="faq-content px-4 py-2 hidden text-gray-700">
+                Devcation is open to anyone with an interest in technology, innovation, and problem-solving. Participants can include students, developers, designers, entrepreneurs, and professionals from various backgrounds.
+              </div>
+            </div>
+        
+            <div class="bg-white/90 rounded-md shadow-md overflow-hidden">
+              <button onclick="toggleFAQ(this)" class="w-full text-left px-4 py-3 font-semibold flex justify-between items-center">
+                Where can we reach out in case of queries?
+                <span class="transform transition-transform duration-200">▼</span>
+              </button>
+              <div class="faq-content px-4 py-2 hidden text-gray-700">
+                You can reach out to us on our Discord Server with any queries. Kindly use the doubt channel for the same!
+              </div>
+            </div>
+
+            <div class="bg-white/90 rounded-md shadow-md overflow-hidden">
+              <button onclick="toggleFAQ(this)" class="w-full text-left px-4 py-3 font-semibold flex justify-between items-center">
+                Do I need to have coding experience to participate?
+                <span class="transform transition-transform duration-200">▼</span>
+              </button>
+              <div class="faq-content px-4 py-2 hidden text-gray-700">
+                While coding experience is beneficial, it's not always necessary to participate in a hackathon. Many hackathons welcome participants with diverse skill sets, including design, business development, marketing, and project management. If you're a beginner you can also look at our mini events need to have coding experience to participate?
+              </div>
+            </div>
+            <div class="bg-white/90 rounded-md shadow-md overflow-hidden">
+              <button onclick="toggleFAQ(this)" class="w-full text-left px-4 py-3 font-semibold flex justify-between items-center">
+                What happens after the hackathon ends?
+                <span class="transform transition-transform duration-200">▼</span>
+              </button>
+              <div class="faq-content px-4 py-2 hidden text-gray-700">
+                After the hackathon concludes, top 10 teams will be invited to present their projects to judges and fellow participants during the final pitching round at IGDTUW. Winners will be announced, and prizes awarded based on the judging criteria. Date for this is 15th April, 2025.
+              </div>
+            </div>
+            <div class="bg-white/90 rounded-md shadow-md overflow-hidden">
+              <button onclick="toggleFAQ(this)" class="w-full text-left px-4 py-3 font-semibold flex justify-between items-center">
+                How can I stay updated on hackathon announcements and events?
+                <span class="transform transition-transform duration-200">▼</span>
+              </button>
+              <div class="faq-content px-4 py-2 hidden text-gray-700">
+                Stay informed about Devcation'25 by joining our Discord Server. Know more about upcoming hackathons and events by GDG IGDTUW by joining our GDG Chapter.
+              </div>
+            </div>
+        
+            <!-- Add more items similarly -->
+          </div>
+        </div>
+        
+        <script>
+          function toggleFAQ(button) {
+            const content = button.nextElementSibling;
+            const icon = button.querySelector('span');
+        
+            content.classList.toggle('hidden');
+            icon.classList.toggle('rotate-180');
+          }
+        </script>
+       <!-- form section  -->
+        <!-- triangle part -->
+        <div class="w-full" > 
+          <img src="/imgs/righttriangle.png" alt="" class="w-full" >
+         </div>
+ 
+
+         <div class="bg-[#A38974] text-white py-16 px-4">
+          <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 w-10/12">
+        
+            <div class="space-y-6">
+              <h2 class="text-3xl font-bold">Contact us</h2>
+              <p>Email: <a href="mailto:dscigdtuw@gmail.com" class="underline">dscigdtuw@gmail.com</a></p>
+              <div class="flex flex-row items-center space-x-4 py-4">
+                <img src="/imgs/facebook-icon.svg" alt="Facebook" class="w-6 h-6" />
+                <img src="/imgs/twi.png" alt="Twitter" class="w-7 h-8" />
+                <img src="/imgs/instagram-icon.svg" alt="Instagram" class="w-6 h-6" />
+                <img src="/imgs/youtube.png" alt="YouTube" class="w-6 h-6" />
+                <img src="/imgs/linkedin-icon.svg" alt="LinkedIn" class="w-6 h-6" />
+              </div>
+        
+              <div class="flex space-x-4 mt-6 text-2xl">
+                <a href="#"><i class="fab fa-x-twitter"></i></a>
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+              </div>
+            <div>
+            <a href="https://chat.whatsapp.com/KIlPsKeZZdo7KhKtilL8AT" target="_blank" rel="noopener noreferrer">
+              <button class="flex items-center bg-gradient-to-r from-[#9e5564] to-[#842e3d] text-white font-bold px-6 py-3 rounded-xl shadow-lg hover:from-[#9e5564] hover:to-[#521a25] transition">
+                <img src="/imgs/dislogo.webp" alt="Devfolio" class="w-5 h-5 rounded-full mr-3 bg-white p-0.5" />
+                Join Discord
+              </button>
+            </a>
+            </div>
+            <div class="mt-4">
+            <a href="hhttps://chat.whatsapp.com/KIlPsKeZZdo7KhKtilL8AT" target="_blank" rel="noopener noreferrer">
+              <button class="flex items-center bg-gradient-to-r from-[#9e5564] to-[#842e3d] text-white font-bold px-6 py-3 rounded-xl shadow-lg hover:from-[#9e5564] hover:to-[#521a25] transition">
+                <img src="/imgs/watlogo.png" alt="Devfolio" class="w-5 h-5 rounded-full mr-3 bg-white p-0.5" />
+                Join Watsapp              </button>
+            </a>
+            </div>
+            </div>
+        
+            <div class="md:w-[70%]">
+              <p class="mb-4 text-white/80">Send your message here and we will try to get back to you as soon as possible.</p>
+              <form class="space-y-4">
+                <input type="text" placeholder="Your Name" class="w-full p-3 rounded bg-white text-black outline-none" />
+                <input type="email" placeholder="Your Email" class="w-full p-3 rounded bg-white text-black outline-none" />
+                <input type="text" placeholder="Subject" class="w-full p-3 rounded bg-white text-black outline-none" />
+                <textarea rows="4" placeholder="Message" class="w-full p-3 rounded bg-white text-black outline-none"></textarea>
+                <button class="flex items-center bg-gradient-to-r from-[#9e5564] to-[#842e3d] text-white font-bold px-6 py-3 rounded-xl shadow-lg hover:from-[#9e5564] hover:to-[#521a25] transition">Send Message</button>
+              </form>
+            </div>
+        
+          </div>
+        </div>
+        
+        <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+    
+
+    
+    </div>
+   
+</body>
+</html>
