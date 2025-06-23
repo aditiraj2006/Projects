@@ -9,4 +9,10 @@
 /* it is the shadow of new feature section box  */
 .shdw{
     box-shadow: 2px 4px 9px 1px hsl(0deg 78.1% 43.68% / 5%);
+};
+
+body, html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
